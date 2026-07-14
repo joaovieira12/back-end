@@ -1,7 +1,7 @@
 {
-  "name": "sistema-escolar-backend",
+  "name": "estudante-offline-backend",
   "version": "1.0.0",
-  "description": "Back-end do Sistema Escolar Completo - Projeto Final FullStack",
+  "description": "Back-end do Estudante Offline - Projeto Final FullStack",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

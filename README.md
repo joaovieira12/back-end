@@ -1,4 +1,4 @@
-# Sistema Escolar - Back-end
+# Estudante Offline - Back-end
 
 Back-end do Projeto Final FullStack (Node.js + Express + PostgreSQL + JWT).
 
