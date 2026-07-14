@@ -42,7 +42,6 @@ CREATE TABLE IF NOT EXISTS grades (
   created_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
-
 CREATE INDEX IF NOT EXISTS idx_enrollments_student ON enrollments(student_id);
 CREATE INDEX IF NOT EXISTS idx_enrollments_class ON enrollments(class_id);
 CREATE INDEX IF NOT EXISTS idx_grades_enrollment ON grades(enrollment_id);
