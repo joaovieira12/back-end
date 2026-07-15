@@ -2,8 +2,6 @@ const userModel = require('../models/userModel');
 const { hashPassword, comparePassword } = require('../utils/hash');
 const { generateToken } = require('../utils/jwt');
 
-// POST /auth/register
-// Cria um novo usuário (admin, professor ou aluno).
 async function register(req, res) {
   try {
     const { name, email, password, role } = req.body;
@@ -32,7 +30,6 @@ async function register(req, res) {
   }
 }
 
-// POST /auth/login
 async function login(req, res) {
   try {
     const { email, password } = req.body;
