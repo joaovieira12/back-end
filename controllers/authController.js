@@ -2,7 +2,10 @@ const userModel = require('../models/userModel');
 const { hashPassword, comparePassword } = require('../utils/hash');
 const { generateToken } = require('../utils/jwt');
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1748ef494841da60ea2b610447600f67d3b7a12e
 async function register(req, res) {
   try {
     const { name, email, password, role } = req.body;
