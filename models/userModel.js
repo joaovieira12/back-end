@@ -1,5 +1,10 @@
 const pool = require('../config/database');
 
+<<<<<<< HEAD
+=======
+// Todas as queries relacionadas à tabela "users".
+// Camada de acesso a dados: não tem regra de negócio aqui, só SQL.
+>>>>>>> 6c41af0022e6bb2d2a5bfcfdb1c0d4377d9fe0d1
 
 async function create({ name, email, password, role }) {
   const result = await pool.query(

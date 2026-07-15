@@ -1,6 +1,11 @@
 const { Pool } = require('pg');
 require('dotenv').config();
 
+<<<<<<< HEAD
+=======
+// Pool de conexões com o PostgreSQL.
+// As credenciais vêm do .env (veja .env.example)
+>>>>>>> 6c41af0022e6bb2d2a5bfcfdb1c0d4377d9fe0d1
 const pool = new Pool({
   host: process.env.DB_HOST,
   port: process.env.DB_PORT,
