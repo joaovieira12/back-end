@@ -1,3 +1,6 @@
+-- Schema do Estudante Offline
+-- Rode este arquivo no seu banco PostgreSQL (via psql ou pgAdmin) antes de subir o servidor.
+
 CREATE TABLE IF NOT EXISTS users (
   id SERIAL PRIMARY KEY,
   name VARCHAR(150) NOT NULL,
@@ -42,6 +45,7 @@ CREATE TABLE IF NOT EXISTS grades (
   created_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
+-- Índices para acelerar buscas comuns
 CREATE INDEX IF NOT EXISTS idx_enrollments_student ON enrollments(student_id);
 CREATE INDEX IF NOT EXISTS idx_enrollments_class ON enrollments(class_id);
 CREATE INDEX IF NOT EXISTS idx_grades_enrollment ON grades(enrollment_id);
