@@ -1,8 +1,5 @@
 const pool = require('../config/database');
 
-// Todas as queries relacionadas à tabela "users".
-// Camada de acesso a dados: não tem regra de negócio aqui, só SQL.
-
 async function create({ name, email, password, role }) {
   const result = await pool.query(
     `INSERT INTO users (name, email, password, role)

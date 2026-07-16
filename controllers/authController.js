@@ -2,8 +2,6 @@ const userModel = require('../models/userModel');
 const { hashPassword, comparePassword } = require('../utils/hash');
 const { generateToken } = require('../utils/jwt');
 
-// POST /auth/register
-// Cria um novo usuário (admin, professor ou aluno).
 async function register(req, res) {
   try {
     const { name, email, password, role } = req.body;
@@ -27,12 +25,11 @@ async function register(req, res) {
 
     return res.status(201).json(novoUsuario);
   } catch (error) {
-    console.error('Erro ao registrar usuário:', error);
-    return res.status(500).json({ error: 'Erro interno ao registrar usuário.' });
+    console.log(error);
+    return res.status(500).json({ error: 'Erro ao registrar usuário.' });
   }
 }
 
-// POST /auth/login
 async function login(req, res) {
   try {
     const { email, password } = req.body;
@@ -58,8 +55,8 @@ async function login(req, res) {
       user: { id: usuario.id, name: usuario.name, email: usuario.email, role: usuario.role },
     });
   } catch (error) {
-    console.error('Erro ao fazer login:', error);
-    return res.status(500).json({ error: 'Erro interno ao fazer login.' });
+    console.log(error);
+    return res.status(500).json({ error: 'Erro ao fazer login.' });
   }
 }
 

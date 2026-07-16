@@ -1,7 +1,5 @@
 const { verifyToken } = require('../utils/jwt');
 
-// Verifica se o header Authorization tem um token JWT válido.
-// Se válido, coloca os dados do usuário em req.user e segue para a rota.
 function authMiddleware(req, res, next) {
   const authHeader = req.headers['authorization'];
 
@@ -9,10 +7,12 @@ function authMiddleware(req, res, next) {
     return res.status(401).json({ error: 'Token não fornecido.' });
   }
 
-  const [tipo, token] = authHeader.split(' ');
+  const partes = authHeader.split(' ');
+  const tipo = partes[0];
+  const token = partes[1];
 
   if (tipo !== 'Bearer' || !token) {
-    return res.status(401).json({ error: 'Formato de token inválido. Use: Bearer <token>' });
+    return res.status(401).json({ error: 'Token mal formatado.' });
   }
 
   try {
