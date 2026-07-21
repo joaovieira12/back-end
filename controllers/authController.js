@@ -12,12 +12,12 @@ async function register(req, res) {
 
     const rolesPermitidas = ['admin', 'professor', 'aluno'];
     if (!rolesPermitidas.includes(role)) {
-      return res.status(400).json({ error: 'Role inválida. Use admin, professor ou aluno.' });
+      return res.status(400).json({ error: 'Role invalida. Use admin, professor ou aluno.' });
     }
 
     const usuarioExistente = await userModel.findByEmail(email);
     if (usuarioExistente) {
-      return res.status(409).json({ error: 'Já existe um usuário com esse email.' });
+      return res.status(409).json({ error: 'Ja existe um usuario com esse email.' });
     }
 
     const hashedPassword = await hashPassword(password);
@@ -26,7 +26,7 @@ async function register(req, res) {
     return res.status(201).json(novoUsuario);
   } catch (error) {
     console.log(error);
-    return res.status(500).json({ error: 'Erro ao registrar usuário.' });
+    return res.status(500).json({ error: 'Erro ao registrar usuario.' });
   }
 }
 
@@ -40,12 +40,12 @@ async function login(req, res) {
 
     const usuario = await userModel.findByEmail(email);
     if (!usuario) {
-      return res.status(401).json({ error: 'Email ou senha inválidos.' });
+      return res.status(401).json({ error: 'Email ou senha invalidos.' });
     }
 
     const senhaValida = await comparePassword(password, usuario.password);
     if (!senhaValida) {
-      return res.status(401).json({ error: 'Email ou senha inválidos.' });
+      return res.status(401).json({ error: 'Email ou senha invalidos.' });
     }
 
     const token = generateToken(usuario);
