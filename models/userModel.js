@@ -13,7 +13,8 @@ async function create({ name, email, password, role }) {
 }
 
 async function findByEmail(email) {
-  const [rows] = await pool.query('SELECT * FROM users WHERE email = ?', [email]);
+  const emailNormalizado = String(email || '').trim().toLowerCase();
+  const [rows] = await pool.query('SELECT * FROM users WHERE LOWER(email) = ?', [emailNormalizado]);
   return rows[0];
 }
 
@@ -51,4 +52,8 @@ async function remove(id) {
   return rows[0];
 }
 
-module.exports = { create, findByEmail, findById, findAll, update, remove };
+async function updatePassword(id, password) {
+  await pool.query('UPDATE users SET password = ? WHERE id = ?', [password, id]);
+}
+
+module.exports = { create, findByEmail, findById, findAll, update, remove, updatePassword };
